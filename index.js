@@ -18,7 +18,8 @@ app.get('/', function (req, res) {
 	res.send('Hello world, I am a chat bot')
 })
 
-let token = "EAACrDNc3L0IBAJT9tUbsse0fkCuk0F3grQTjF8Y72KRoC5im8qe7lBbe8J8s9DmGZB16eBDxDfTeOdRGv3eTs5RZCpYBtrEyrZC4inooPMZBf7OT89NUt6qi1XrO6jNfq2PXNgXFsAZBZBskq6SBCSHo2fh6xU80shpUdGSZBbRIKhZCBdFpA9Eb"
+let token = "EAACrDNc3L0IBAJT9tUbsse0fkCuk0F3grQTjF8Y72KRoC5im8qe7lBbe8J8s9DmGZB16eBDxDfTe
+OdRGv3eTs5RZCpYBtrEyrZC4inooPMZBf7OT89NUt6qi1XrO6jNfq2PXNgXFsAZBZBskq6SBCSHo2fh6xU80shpUdGSZBbRIKhZCBdFpA9Eb"
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
@@ -42,14 +43,14 @@ app.post('/webhook', function(req, res)){
 	res.sendStatus(200)
 })
 
-function sendText(sender, test){
+function sendText(sender, text){
 	let messageData = {text: text}
 	request({
 		url:https://graph.facebook.com/v2.6/me/messages",
-		qs : {acess_token, token},
-		methond: "POST",
+		qs : {acess_token : token},
+		method: "POST",
 		json: {
-			receipt: {id: sender},
+			recipient: {id: sender},
 			message: messageData
 		}
 	}, function(error, response, body){
