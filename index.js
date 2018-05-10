@@ -37,7 +37,7 @@ app.post('/webhook', function(req, res)){
 		let sender = event.sender.id
 		if(event.message && event.message.text){
 			let text = event.message.text
-			sendText(sender, "Text echo: "+text.substring(0,100))
+			sendText(sender, "Text echo: " + text.substring(0,100))
 		}
 	}
 	res.sendStatus(200)
@@ -46,12 +46,12 @@ app.post('/webhook', function(req, res)){
 function sendText(sender, text){
 	let messageData = {text: text}
 	request({
-		url:https://graph.facebook.com/v2.6/me/messages",
+		url: "https://graph.facebook.com/v2.6/me/messages",
 		qs : {acess_token : token},
 		method: "POST",
 		json: {
 			recipient: {id: sender},
-			message: messageData
+			message: messageData,
 		}
 	}, function(error, response, body){
 		if(error){
@@ -64,5 +64,5 @@ function sendText(sender, text){
 
 // Spin up the server
 app.listen(app.get('port'), function() {
-	console.log('running on port', app.get('port'))
+	console.log('running on port')
 })
