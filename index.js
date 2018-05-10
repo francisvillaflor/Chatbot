@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
 	res.send('Hello world, I am a chat bot')
 })
 
-token = "EAACrDNc3L0IBAJT9tUbsse0fkCuk0F3grQTjF8Y72KRoC5im8qe7lBbe8J8s9DmGZB16eBDxDfTeOdRGv3eTs5RZCpYBtrEyrZC4inooPMZBf7OT89NUt6qi1XrO6jNfq2PXNgXFsAZBZBskq6SBCSHo2fh6xU80shpUdGSZBbRIKhZCBdFpA9Eb"
+let token = "EAACrDNc3L0IBAJT9tUbsse0fkCuk0F3grQTjF8Y72KRoC5im8qe7lBbe8J8s9DmGZB16eBDxDfTeOdRGv3eTs5RZCpYBtrEyrZC4inooPMZBf7OT89NUt6qi1XrO6jNfq2PXNgXFsAZBZBskq6SBCSHo2fh6xU80shpUdGSZBbRIKhZCBdFpA9Eb"
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
@@ -29,7 +29,7 @@ app.get('/webhook/', function (req, res) {
 })
 
 app.post('/webhook', function(req, res)){
-	let messaging_events = req.body.entry[0].messaging_events
+	let messaging_events = req.body.entry[0].messaging
 	for (let i = 0; i < messaging_events.length; i++)
 	{
 		let event = messaging_events[i]
